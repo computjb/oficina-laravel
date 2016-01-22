@@ -1,25 +1,14 @@
 <?php
+ 
+Route::get('/','BaseController@index');
+Route::get('/cliente/create','ClienteController@create');
+Route::post('/cliente/store','ClienteController@store');
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
+Route::get('/clientes','ClienteController@index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/cliente/listar/{id}','ClienteController@show');
 
-Route::get('/ola', 'OlaController@index');
-Route::get('/books', ['as'=>'book.index', 'uses'=> 'BookController@index']);
-Route::get('/books/create', 'BookController@create');
-Route::post('/books/store', ['as'=>'book.store', 'uses'=> 'BookController@store']);
+Route::get('/cliente/editar/{id}','ClienteController@edit');
+Route::post('/cliente/update/{id}','ClienteController@update');
 
-Route::get('/books/delete/{id}', 'BookController@delete');
-Route::get('/books/edit/{id}', 'BookController@edit');
-Route::post('/books/update/{id}', ['as'=>'book.update', 'uses'=> 'BookController@update']);
+Route::get('/cliente/deletar/{id}','ClienteController@destroy');
